@@ -1,7 +1,7 @@
 const cells = document.querySelectorAll('.cell');
 const status = document.getElementById('status');
 const restartButton = document.getElementById('restart');
-
+ 
 let currentPlayer = 'X';
 let gameActive = true;
 let gameState = ['', '', '', '', '', '', '', '', ''];
