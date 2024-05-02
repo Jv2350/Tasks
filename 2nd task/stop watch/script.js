@@ -1,13 +1,12 @@
-var time_ele = document.getElementsByClassName("time")[0];
-var start_btn = document.getElementById("start");
-var lap_btn = document.getElementById("lap");
-var stop_btn = document.getElementById("stop");
-var reset_btn = document.getElementById("reset");
-
+let time_ele = document.getElementsByClassName("time")[0];
+let start_btn = document.getElementById("start");
+let lap_btn = document.getElementById("lap");
+let stop_btn = document.getElementById("stop");
+let reset_btn = document.getElementById("reset");
 
 let milliseconds = 0;
-let interval = null;
-let ctr = 0;
+let interval;
+let lapCounter = 0;
 
 start_btn.addEventListener("click", start);
 lap_btn.addEventListener("click", lap);
@@ -16,51 +15,43 @@ reset_btn.addEventListener("click", reset);
 
 function timer() {
     milliseconds++;
+    let mins = Math.floor(milliseconds / (100 * 60));
+    let secs = Math.floor((milliseconds / 100) % 60);
+    let msecs = milliseconds % 100;
 
-    let mins = Math.floor(milliseconds / (1000 * 60));
-    let secs = Math.floor((milliseconds - (mins * 1000 * 60)) / 1000);
-    let msecs = milliseconds % 1000;
+    mins = padZero(mins);
+    secs = padZero(secs);
+    msecs = padZero(msecs);
 
-    if (msecs < 10)
-        msecs = '00' + msecs;
-    else if (msecs < 100)
-        msecs = '0' + msecs;
-
-    if (secs < 10)
-        secs = '0' + secs;
-
-    if (mins < 10)
-        mins = '0' + mins;
-
-    time_ele.innerHTML = `${mins}:${secs}:${msecs}`;
+    time_ele.innerHTML = `${mins}:${secs}.${msecs}`;
 }
 
+function padZero(num) {
+    return num < 10 ? "0" + num : num;
+}
 
 function start() {
-    if (interval) {
-        return;
-    }
-
-    interval = setInterval(timer, 1); // Update every millisecond
+    clearInterval(interval);
+    interval = setInterval(timer, 10);
 }
 
 function lap() {
-    ctr++;
+    lapCounter++;
     let lapElement = document.createElement('h4');
-    lapElement.textContent = "Lap " + ctr + ":  " + time_ele.innerHTML;
+    lapElement.textContent = "Lap " + lapCounter + ":  " + time_ele.innerHTML;
     document.querySelector('.lapping').appendChild(lapElement);
 }
 
-
-
 function stop() {
     clearInterval(interval);
-    interval = null;
 }
 
 function reset() {
-    stop();
+    clearInterval(interval);
     milliseconds = 0;
-    ctr = 0;
-    time_ele.innerHTML = "00:00:000";
+    lapCounter = 0;
+    time_ele.innerHTML = "00:00:00";
+
+    let lapContainer = document.querySelector('.lapping');
+    lapContainer.innerHTML = '';
 }
