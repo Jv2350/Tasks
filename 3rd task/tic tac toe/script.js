@@ -20,7 +20,9 @@ const winPatterns = [
 
 const resetGame = () => {
     window.location.reload();
-}
+    document.querySelector(".msg-container").classList.remove("show");
+};
+
 
 const disableBoxes = () => {
     for (let box of boxes) {
@@ -35,10 +37,11 @@ const enableBoxes = () => {
 }
 
 const showWinner = (winner) => {
-    msg.innerHTML = `Congratulations, Winner is ${winner}`;
-    msgContainer.classList.remove("hide");
+    document.getElementById("winner").textContent = winner;
+    document.querySelector(".msg-container").classList.add("show");
     disableBoxes();
 }
+
 
 const checkWinner = () => {
     for (let pattern of winPatterns) {
@@ -57,10 +60,11 @@ const checkWinner = () => {
 };
 
 const gameDraw = () => {
-    msg.innerHTML = "Game has been Drawn";
-    msgContainer.classList.remove("hide");
+    document.getElementById("msg").textContent = "Game has been Drawn";
+    document.querySelector(".msg-container").classList.add("show");
     disableBoxes();
 };
+
 
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
