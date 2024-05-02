@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
-    font-family: Poppins, sans-serif;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+::selection {
+    color: #fff;
+    background: #56baed;
 }
 
 body {
-    background: #56baeb;
+    background: #56baed;
 }
 
 .select-box,
@@ -16,32 +23,31 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .select-box {
     background: #fff;
     padding: 20px 25px 25px;
     border-radius: 5px;
-    max-width: 330px;
+    max-width: 400px;
     width: 100%;
 }
 
 .select-box.hide {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -50%) scale(.9);
 }
 
 .select-box header {
-    font-size: 23px;
+    font-size: 30px;
     font-weight: 600;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid lightgrey;
 }
 
 .select-box .title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 500;
     margin: 20px 0;
 }
@@ -53,20 +59,20 @@ body {
 
 .options button {
     width: 100%;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 500;
-    padding: 8px 0;
+    padding: 10px 0;
     border: none;
-    outline: none;
-    background: #56baeb;
+    background: #56baed;
     border-radius: 5px;
     color: #fff;
+    outline: none;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
 
 .options button:hover,
-.result-box .btn button:hover {
+.btn button:hover {
     transform: scale(0.96);
 }
 
@@ -76,6 +82,22 @@ body {
 
 .options button.playerO {
     margin-left: 5px;
+}
+
+.select-box .credit {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.select-box .credit a {
+    color: #56baed;
+    text-decoration: none;
+}
+
+.select-box .credit a:hover {
+    text-decoration: underline;
 }
 
 .play-board {
@@ -91,57 +113,61 @@ body {
 }
 
 .play-board .details {
-    background: #fff;
     padding: 7px;
     border-radius: 5px;
+    background: #fff;
 }
 
-.play-board .details .players {
-    display: flex;
+.play-board .players {
     width: 100%;
+    display: flex;
     position: relative;
     justify-content: space-between;
 }
 
-.play-board .details span {
-    width: 100%;
-    color: #56baeb;
-    border-radius: 5px;
-    padding: 7px 0;
-    font-size: 19px;
-    font-weight: 500;
-    cursor: default;
-    text-align: center;
+.players span {
     position: relative;
-    z-index: 5;
-    transition: all .3s ease;
-}
-
-
-.details span:first-child {
-    color: #fff;
-
-}
-
-.play-board .details span.active {
-    color: #fff;
-}
-
-.details .slider {
-    position: absolute;
-    background: #56baeb;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50%;
-    background: #56baeb;
-    border-radius: 5px;
     z-index: 2;
-    transition: all .3s ease-;
+    color: #56baed;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    transition: all 0.3 ease;
 }
 
 .players.active span:first-child {
-    color: #56baeb;
+    color: #fff;
+}
+
+.players.active span:last-child {
+    color: #56baed;
+}
+
+.players span:first-child {
+    color: #fff;
+}
+
+.players .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #56baed;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.players.active .slider {
+    left: 50%;
+}
+
+.players.active span:first-child {
+    color: #56baed;
 }
 
 .players.active span:nth-child(2) {
@@ -152,63 +178,74 @@ body {
     left: 50%;
 }
 
-
-.play-board .play-area {
+.play-area {
     margin-top: 20px;
 }
 
-.play-board section {
+.play-area section {
     display: flex;
+    margin-bottom: 1px;
 }
 
-.play-board section span {
+.play-area section span {
     display: block;
+    height: 90px;
+    width: 90px;
     margin: 2px;
-    height: 80px;
-    width: 80px;
-    background: #fff;
-    border-radius: 5px;
+    color: #56baed;
     font-size: 40px;
-    text-align: center;
     line-height: 80px;
-    color: #56baeb;
+    text-align: center;
+    border-radius: 5px;
+    background: #fff;
 }
 
 .result-box {
-    background: #fff;
-    padding: 20px;
+    padding: 25px 20px;
     border-radius: 5px;
-    max-width: 350px;
+    max-width: 400px;
     width: 100%;
+    opacity: 0;
+    text-align: center;
+    background: #fff;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .result-box .won-text {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 500;
     display: flex;
     justify-content: center;
 }
 
 .result-box .won-text p {
-    font-weight: 700;
-    margin: 0 3px;
+    font-weight: 600;
+    margin: 0 5px;
 }
 
 .result-box .btn {
+    width: 100%;
+    margin-top: 25px;
     display: flex;
-    margin-top: 20px;
     justify-content: center;
 }
 
-.result-box .btn button {
+.btn button {
     font-size: 18px;
     font-weight: 500;
     padding: 8px 20px;
     border: none;
-    outline: nnone;
-    background: #56baeb;
+    background: #56baed;
     border-radius: 5px;
     color: #fff;
+    outline: none;
     cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 }
