@@ -7,24 +7,9 @@
 
 body {
     min-height: 100vh;
-    background: url(logo.jpg) no-repeat;
+    background: url(bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.head {
-    color: #fff;
-    margin: 20px;
-    display: block;
-    height: 100px;
-}
-
-.head h1 {
-    padding: 10px;
-}
-
-.head p {
-    padding-left: 30px;
 }
 
 
@@ -93,7 +78,20 @@ body {
 #menu-icon:hover {
     color: #066f99;
 }
+.content{
+    margin: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-justify: auto;
+    color: white;
+    flex-direction: column;
+}
 
+.content p{
+    color: aliceblue;
+    text-align: justify;
+}
 @media(max-width:1000px) {
     .header {
         padding: 1.25rem 4%;
