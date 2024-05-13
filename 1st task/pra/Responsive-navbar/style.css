@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 200vh;
+}
+
+
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 40px 80px;
+  position: fixed;
+  top: 0;
+  transition: 0.6s;
+  width: 100%;
+  z-index: 100000;
+}
+
+nav.sticky {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 100px;
+}
+
+nav .logo {
+  color: #231942;
+  cursor: pointer;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+nav .logo:hover {
+  color: #bdb2ff;
+}
+
+nav.sticky .logo {
+  color: #bdb2ff;
+}
+
+nav.sticky .logo:hover {
+  color: #231942;
+}
+
+
+nav ul li a {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 0 15px;
+  position: relative;
+  text-decoration: none;
+  transition: 0.6s;
+}
+
+nav.sticky ul li a {
+  color: #231942;
+}
+
+nav ul li:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #231942;
+  transition: .6s;
+}
+
+nav.sticky ul li:hover::after {
+  background-color: #bdb2ff;
+}
+
+
+
+.menu {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin: 0 10px;
+  list-style: none;
+  position: relative;
+}
+
+.menu li a {
+  color: #bdb2ff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.menu li a:hover {
+  color: #231942;
+}
+
+nav.sticky .menu li a:hover {
+  color: #bdb2ff;
+}
+
+
+
+#menu-icon {
+  color: #bdb2ff;
+  cursor: pointer;
+  display: none;
+  font-size: 32px;
+}
+
+#menu-icon:hover {
+  color: #231942;
+}
+
+nav.sticky #menu-icon {
+  color: #231942;
+}
+
+nav.sticky #menu-icon:hover {
+  color: #bdb2ff;
+}
+
+
+
+section {
+  min-height: 100vh;
+  padding: 10rem 9% 2rem;
+}
+
+.heading {
+  font-size: 45px;
+  text-align: center;
+}
+
+
+
+.about,
+.team {
+  background: #231942;
+  color: #5e548e;
+}
+
+.contact,
+.home,
+.services {
+  background-color: #5e548e;
+  color: #231942;
+}
+
+p {
+  font-size: 20px;
+  margin: auto;
+  padding: 5rem;
+  text-align: justify;
+}
+
+
+
+@media screen and (max-width: 898px) {
+  .menu {
+    background: #5e548e;
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+    display: none;
+    left: 0;
+    padding: 1rem 3%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+  }
+
+  .menu a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+  }
+
+  .menu.active {
+    display: block;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+}
