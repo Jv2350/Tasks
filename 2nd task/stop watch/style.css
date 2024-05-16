@@ -6,8 +6,8 @@
 }
 
 body {
-    background: #cdb4db;
-    color: #9f838c;
+    background: #000000;
+    color: #e5e5e5;
 }
 
 h1 {
@@ -21,7 +21,7 @@ footer {
 }
 
 .container {
-    background: #baabbd;
+    background: #14213d;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,8 +41,8 @@ footer {
 }
 
 .controls button {
-    background-color: #816f68;
-    color: #baabbd;
+    background-color: #fca311;
+    color: #ffffff;
     margin: 10px 5px;
     padding: 10px 20px 10px 20px;
     font-size: 1.2rem;
@@ -56,7 +56,7 @@ footer {
 
 .controls button:hover {
     background-color: #816f68c4;
-    color: #cdb4db;
+    color: #e5e5e5;
 }
 
 .lapping {
