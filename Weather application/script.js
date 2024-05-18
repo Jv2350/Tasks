@@ -1,4 +1,3 @@
-// main.js
 import API_KEY from './config.js';
 
 const cityInput = document.querySelector("#city_input");
@@ -134,7 +133,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
         .then(data => {
             const hourlyForecast = data.list;
             hourlyForecastCard.innerHTML = ``;
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i <= 7; i++) {
                 const hrForecastDate = new Date(hourlyForecast[i].dt_txt);
                 let hr = hrForecastDate.getHours();
                 let a = 'PM';
@@ -231,4 +230,3 @@ function getUserLocation() {
 }
 
 locationBtn.addEventListener("click", getUserLocation);
-// window.addEventListener("load", getUserLocation);
