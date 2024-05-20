@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
 :root {
     --bg-color1: #212529;
     --bg-color2: #2a2b2d;
@@ -12,7 +14,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
+    font-family: "Poetsen One";
 }
 
 body {
